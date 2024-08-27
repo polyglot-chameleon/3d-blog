@@ -1,16 +1,35 @@
-import { Text3D } from "@react-three/drei";
-import { useRef } from "react";
-import { Mesh } from "three";
+import { RoundedBox, Text3D } from "@react-three/drei";
+import useArticles from "../hooks/useArticles";
 
 export default function ArticleOverview() {
-  const text3D = useRef<Mesh>(null);
-  text3D.current?.rotateY(-0.2);
-  text3D.current?.rotateZ(-0.2);
+  const texts = useArticles();
+
+  let OffSetY = 0;
 
   return (
-    <Text3D ref={text3D!} font={import.meta.env.VITE_FONT_PATH} size={0.3}>
-      hi there! this is my new 3d blog!
-      <meshStandardMaterial />
-    </Text3D>
+    <>
+      {texts.map((text) => (
+        <RoundedBox position={[0, OffSetY--, 0]} args={[3.5, 0.9, 0.3]}>
+          <Text3D
+            font={import.meta.env.VITE_FONT_PATH}
+            size={0.3}
+            position={[-1.5, 0.1, 0]}
+          >
+            {text.title}
+            <meshStandardMaterial />
+          </Text3D>
+          <Text3D
+            font={import.meta.env.VITE_FONT_PATH}
+            size={0.2}
+            position={[-1.5, -0.3, 0]}
+          >
+            {text.desc}
+            <meshStandardMaterial />
+          </Text3D>
+
+          <meshStandardMaterial opacity={0.5} />
+        </RoundedBox>
+      ))}
+    </>
   );
 }
