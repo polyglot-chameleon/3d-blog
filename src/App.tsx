@@ -1,16 +1,17 @@
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
+import ArticleOverview from "./components/ArticleOverview";
+import { OrbitControls } from "@react-three/drei";
 
 export default function App() {
   return (
-    <Canvas>
-      <ambientLight intensity={0.1} />
-      <directionalLight color="green" position={[0, 0, 5]} />
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <Canvas>
+        <ambientLight intensity={0.7} color={"yellow"} />
 
-      <mesh>
-        <boxGeometry args={[10, 10, 2]} />
-        <meshPhongMaterial />
-      </mesh>
-    </Canvas>
+        <OrbitControls enableZoom={false} />
+        <ArticleOverview />
+      </Canvas>
+    </div>
   );
 }
