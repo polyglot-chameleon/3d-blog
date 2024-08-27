@@ -1,16 +1,14 @@
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
+import ArticleOverview from "./components/ArticleOverview";
 
 export default function App() {
   return (
-    <Canvas>
-      <ambientLight intensity={0.1} />
-      <directionalLight color="green" position={[0, 0, 5]} />
-
-      <mesh>
-        <boxGeometry args={[10, 10, 2]} />
-        <meshPhongMaterial />
-      </mesh>
-    </Canvas>
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <Canvas>
+        <ambientLight intensity={0.3} color={"yellow"} />
+        <ArticleOverview />
+      </Canvas>
+    </div>
   );
 }
