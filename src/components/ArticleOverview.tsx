@@ -9,7 +9,7 @@ export default function ArticleOverview() {
   return (
     <>
       {texts.map((text) => (
-        <RoundedBox position={[0, OffSetY--, 0]} args={[3.5, 0.9, 0.3]}>
+        <RoundedBox position={[0, OffSetY--, 0]} args={[3.5, 0.9, 0.3]} key={text.title}>
           <Text3D
             font={import.meta.env.VITE_FONT_PATH}
             size={0.3}
