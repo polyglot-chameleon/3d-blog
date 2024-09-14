@@ -16,7 +16,7 @@ export default function ArticleOverview() {
             position={[-1.5, 0.1, 0]}
           >
             {text.title}
-            <meshStandardMaterial />
+            <meshBasicMaterial color={'lime'}/>
           </Text3D>
           <Text3D
             font={import.meta.env.VITE_FONT_PATH}
@@ -24,7 +24,7 @@ export default function ArticleOverview() {
             position={[-1.5, -0.3, 0]}
           >
             {text.desc}
-            <meshStandardMaterial />
+            <meshBasicMaterial color={'cyan'} />
           </Text3D>
 
           <meshStandardMaterial opacity={0.5} />
